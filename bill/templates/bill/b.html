@@ -1,0 +1,77 @@
+<html>
+<body>
+  <div align="center">
+    <h1>Sreeman cotton fabs</h1>
+    <h2>near tower circle ,1st floor</h2>
+  </div>
+ <p>
+ Invoice no. {{ order.id }}</br>
+ <span class="secondary">
+ {{ order.created|date:"M d, Y" }}
+ </span>
+ </p>
+ <h3>Bill to</h3>
+ <p>
+ {{ order.name }}<br>
+ {{ order.phone_number }}<br>
+ </p>
+ <h3>Items bought</h3>
+ <tr>
+    <td>material:</td>
+    <td>{{type}}</td>
+  </tr>
+</br>
+  <tr>
+     <td>price:</td>
+     <td>{{order.price}}</td>
+
+   </tr>
+ </br>
+ <tr>
+    <td>discount:</td>
+    <td>{{order.discount}}</td>
+
+  </tr>
+</br>
+<tr>
+   <td>total:</td>
+   <td>{{total}}</td>
+
+ </tr>
+<!-- <table>
+<thead>
+<tr>
+<th>Product</th>
+<th>Price</th>
+<th>Quantity</th>
+<th>Cost</th>
+</tr>
+</thead>
+
+<tbody> -->
+  <!-- <td<h1>material</h1>{{type}}   {{order.price}}
+</br>
+
+  {{order.discount}}
+  </br> -->
+
+<!-- {% for item in order.all %} -->
+<!-- <tr>
+<td>{{item.name}}</td>
+<td class="num">${{ item.price }}</td>
+<td class="num">{{ item.quantity }}</td>
+<td class="num">${{ item.get_cost }}</td>
+</tr> -->
+<!-- {% endfor %} -->
+<!-- <tr class="total">
+<td colspan="3">Total</td>
+<td class="num">${{ order.get_total_cost }}</td>
+</tr>
+</tbody>
+</table> -->
+
+<!-- <span class="{% if order.paid %}paid{% else %}pending{% endif %}">
+{% if order.paid %}Paid{% else %}Pending payment{% endif %}
+</span> -->
+</body>
+</html>
