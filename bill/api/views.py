@@ -54,35 +54,61 @@ class Direct(APIView):
     def get(self, request):
         queryset = D.objects.all()
         return Response({'direct': queryset})
-
-# @api_view(['GET'])
-# @renderer_classes((JSONRenderer,TemplateHTMLRenderer,BrowsableAPIRenderer))
-# def meld_live_orders(request):
-#     if request.method =='GET':
-#         current_orders = Meld_Sales.objects.values_list('TicketNo',flat=True).distinct()
-#         prev_orders = Meld_Order.objects.values_list('TicketNo',flat =True).distinct()
-#
-#         live_orders = live_order_generator(current_orders,prev_orders)
-#
-#         return render(request,'live_orders.html',{'live_orders':live_orders})
-# @api_view(['GET'])
-# @renderer_classes((JSONRenderer,TemplateHTMLRenderer))
 def admin_order_pdf(request, order_id, *args, **kwargs):
-# def admin_order_pdf(request, order_id):
-
     queryset=D.objects.all()
-    # serializer=
-    # order=D.objects.get(order_id)
     order = get_object_or_404(queryset, id=order_id)
     type=order.type
     price=order.price
+    meters =order.meters
+    price=price*meters
     discount=order.discount
     total=price-discount
+    type2=order.type2
+    if type2 == None:
+        # type2=None
+        price2=None
+        meters2=None
+        discount2=None
+        total2=None
+
+
+        
+    else:
+        price2=order.price2
+        meters2=order.meters2
+    # if meters2 != None:
+        price2=price2*meters2
+        discount2=order.discount2
+        total2=price2-discount2
+
+    # else:
+    #     price2=None
+    # if price2 !=  None:
+
+        # total2=price2-discount2
+        # return total2
+    # else:
+        # total2=None
+        # return price2,meters2,price2,total2
+    # else:
+    #     price2=None
+    #     meters2=None
+    #     discount2 =None
     # print()
     template=get_template('bill/b.html')
     data={
-    'order': order,'total':total,'type':type
-    }
+    'order': order,
+    'total':total,
+    'type':type,
+    'price':price,
+    'meters':meters,
+    'discount':discount,
+    'type2':type2,
+    'price2':price2,
+    'discount2':discount2,
+    'total2':total2,
+    'meters2':meters2
+        }
     html = render_to_pdf('bill/b.html',
     data)
     return HttpResponse(html, content_type='application/pdf')

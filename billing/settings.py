@@ -27,9 +27,9 @@ TEMPLATE_DIRS = (
 SECRET_KEY = '3=wggg!ip-v!z7g2m-8_d$)orc*_@mc1%i$43hoepmqec&2bbs'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost"]
 
 
 # Application definition

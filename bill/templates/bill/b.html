@@ -1,8 +1,8 @@
-<html>
+<!-- <html>
 <body>
   <div align="center">
     <h1>Sreeman cotton fabs</h1>
-    <h2>near tower circle ,1st floor</h2>
+    <h2>near tower circle ,\1st floor</h2>
   </div>
  <p>
  Invoice no. {{ order.id }}</br>
@@ -19,11 +19,14 @@
  <tr>
     <td>material:</td>
     <td>{{type}}</td>
+    {% if type2 != None %}<td>{{type2}}</td>{%endif%}
   </tr>
 </br>
   <tr>
      <td>price:</td>
-     <td>{{order.price}}</td>
+     <td>{{order.price}}</td> -->
+<!--
+     <td>{{price}}</td>
 
    </tr>
  </br>
@@ -38,40 +41,117 @@
    <td>{{total}}</td>
 
  </tr>
-<!-- <table>
-<thead>
-<tr>
-<th>Product</th>
-<th>Price</th>
-<th>Quantity</th>
-<th>Cost</th>
-</tr>
-</thead>
-
-<tbody> -->
-  <!-- <td<h1>material</h1>{{type}}   {{order.price}}
-</br>
-
-  {{order.discount}}
-  </br> -->
-
-<!-- {% for item in order.all %} -->
-<!-- <tr>
-<td>{{item.name}}</td>
-<td class="num">${{ item.price }}</td>
-<td class="num">{{ item.quantity }}</td>
-<td class="num">${{ item.get_cost }}</td>
-</tr> -->
-<!-- {% endfor %} -->
-<!-- <tr class="total">
-<td colspan="3">Total</td>
-<td class="num">${{ order.get_total_cost }}</td>
-</tr>
-</tbody>
-</table> -->
-
-<!-- <span class="{% if order.paid %}paid{% else %}pending{% endif %}">
-{% if order.paid %}Paid{% else %}Pending payment{% endif %}
-</span> -->
 </body>
-</html>
+</html> -->
+<!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+    		<div class="invoice-title">
+    			<h2>Invoice</h2><h3 class="pull-right">Order # {{order.id}}</h3>
+    		</div>
+    		<hr>
+    		<div class="row">
+    			<div class="col-xs-6">
+    				<address>
+    				<strong>Billed To:</strong><br>
+    					{{order.name}}<br>
+    					{{order.phone_number}}<br>
+    				</address>
+    			</div>
+    			<!-- <div class="col-xs-6 text-right">
+    				<address>
+        			<strong>Shipped To:</strong><br>
+    					Jane Smith<br>
+    					1234 Main<br>
+    					Apt. 4B<br>
+    					Springfield, ST 54321
+    				</address>
+    			</div> -->
+    		</div>
+    		<div class="row">
+    			<!-- <div class="col-xs-6">
+    				<address>
+    					<strong>Payment Method:</strong><br>
+    					Visa ending **** 4242<br>
+    					jsmith@email.com
+    				</address>
+    			</div> -->
+    			<div class="col-xs-6 text-right">
+    				<address>
+    					<strong>Order Date:</strong><br>
+    					March 7, 2014<br><br>
+    				</address>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+    <div class="row">
+    	<div class="col-md-12">
+    		<div class="panel panel-default">
+    			<div class="panel-heading">
+    				<h3 class="panel-title"><strong>Order summary</strong></h3>
+    			</div>
+    			<div class="panel-body">
+    				<div class="table-responsive">
+    					<table class="table table-condensed">
+    						<thead>
+                                <tr>
+        							<td><strong>Item</strong></td>
+        							<td class="text-center"><strong>Quantitiy  </strong></td>
+        							<td class="text-center"><strong>price</strong></td>
+                      <td class="text-center"><strong>discout</strong></td>
+
+        							<td class="text-right"><strong>Totals</strong></td>
+                                </tr>
+    						</thead>
+    						<tbody>
+    							<!-- foreach ($order->lineItems as $line) or some such thing here -->
+    							<tr>
+    								<td>{{type}}</td>
+                    <td class="text-center">{{meters}}</td>
+
+    								<td class="text-center">{{price}}</td>
+                    <td class="text-center">{{discount}}</td>
+
+    								<td class="text-right">{{total}}</td>
+    							</tr>
+                                <tr>
+        							  {% if type2 != None %}<td>{{type2}}</td>{%endif%}
+                        {% if meters2 != None %}<td class="text-center">{{meters2}}</td>{%endif%}
+
+    							      {% if price2 != None %}	<td class="text-center">{{price2}} </td>{%endif%}
+                      {% if discount2 != None %}<td class="text-center">{{discount2}}</td>{%endif%}
+
+    								  {% if total2 != None %}<td class="text-right">{{total2}}</td>{%endif%}
+    							</tr>
+    								<td class="thick-line"></td>
+    								<td class="thick-line"></td>
+    								<td class="thick-line text-center"><strong>Subtotal</strong></td>
+    								<td class="thick-line text-right">$670.99</td>
+    							</tr>
+    							<tr>
+    								<td class="no-line"></td>
+    								<td class="no-line"></td>
+    								<td class="no-line text-center"><strong>Shipping</strong></td>
+    								<td class="no-line text-right">$15</td>
+    							</tr>
+    							<tr>
+    								<td class="no-line"></td>
+    								<td class="no-line"></td>
+    								<td class="no-line text-center"><strong>Total</strong></td>
+    								<td class="no-line text-right">$685.99</td>
+    							</tr>
+    						</tbody>
+    					</table>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+</div>
