@@ -63,7 +63,9 @@ def admin_order_pdf(request, order_id, *args, **kwargs):
     price=price*meters
     discount=order.discount
     total=price-discount
+    grand_total=total
     type2=order.type2
+
     if type2 == None:
         price2=None
         meters2=None
@@ -75,6 +77,8 @@ def admin_order_pdf(request, order_id, *args, **kwargs):
         price2=price2*meters2
         discount2=order.discount2
         total2=price2-discount2
+        grand_total=total+total2
+
     type3=order.type3
     if type3 == None:
         price3=None
@@ -87,6 +91,8 @@ def admin_order_pdf(request, order_id, *args, **kwargs):
         price3=price3*meters3
         discount3=order.discount3
         total3=price3-discount3
+        grand_total=total+total2+total3
+
     type4=order.type4
     if type4 == None:
         price4=None
@@ -99,6 +105,8 @@ def admin_order_pdf(request, order_id, *args, **kwargs):
         price4=price4*meters4
         discount4=order.discount4
         total4=price4-discount4
+        grand_total=total+total2+total3+total4
+
     type5=order.type5
     if type5 == None:
         price5=None
@@ -111,7 +119,7 @@ def admin_order_pdf(request, order_id, *args, **kwargs):
         price5=price5*meters5
         discount5=order.discount5
         total5=price5-discount5
-
+        grand_total=total+total2+total3+total4+total5
     # else:
     #     price2=None
     # if price2 !=  None:
@@ -128,6 +136,7 @@ def admin_order_pdf(request, order_id, *args, **kwargs):
     # print()
     template=get_template('bill/b.html')
     data={
+
     'order': order,
     'total':total,
     'type':type,
@@ -154,9 +163,10 @@ def admin_order_pdf(request, order_id, *args, **kwargs):
     'discount5':discount5,
     'total5':total5,
     'meters5':meters5,
+    'grand_total':grand_total,
+
         }
-    html = render_to_pdf('bill/b.html',
-    data)
+    html = render_to_pdf('bill/b.html',data)
     return HttpResponse(html, content_type='application/pdf')
 
     # response = HttpResponse(html,content_type='application/pdf')
