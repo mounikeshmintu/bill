@@ -60,66 +60,68 @@ def admin_order_pdf(request, order_id, *args, **kwargs):
     type=order.type
     price=order.price
     meters =order.meters
-    price=price*meters
+    price_total=price*meters
     discount=order.discount
-    total=price-discount
-    grand_total=total
+    total=price
+    grand_total=total-discount
     type2=order.type2
 
     if type2 == None:
         price2=None
         meters2=None
-        discount2=None
+        # discount2=None
         total2=None
     else:
         price2=order.price2
         meters2=order.meters2
-        price2=price2*meters2
-        discount2=order.discount2
-        total2=price2-discount2
-        grand_total=total+total2
+        price2_total=price2*meters2
+        discount=order.discount
+
+        # total2=price2-discount2
+        total2=price_total+price2_total
+        grand_total=total2-discount
 
     type3=order.type3
     if type3 == None:
         price3=None
         meters3=None
-        discount3=None
+        discount=None
         total3=None
     else:
         price3=order.price3
         meters3=order.meters3
-        price3=price3*meters3
-        discount3=order.discount3
-        total3=price3-discount3
-        grand_total=total+total2+total3
+        price3_total=price3*meters3
+        discount=order.discount
+        # total3=price3-discount3
+        total3=price_total+price2_total+price3_total
+        grand_total=total3-discount
 
     type4=order.type4
     if type4 == None:
         price4=None
         meters4=None
-        discount4=None
+        # discount4=None
         total4=None
     else:
         price4=order.price4
         meters4=order.meters4
-        price4=price4*meters4
-        discount4=order.discount4
-        total4=price4-discount4
-        grand_total=total+total2+total3+total4
-
+        price4_total=price4*meters4
+        discount=order.discount
+        total4=price_total+price2_total+price3_total+price4_total
+        grand_total=total4-discount
     type5=order.type5
     if type5 == None:
         price5=None
         meters5=None
-        discount5=None
+        discount=None
         total5=None
     else:
         price5=order.price5
         meters5=order.meters5
-        price5=price5*meters5
-        discount5=order.discount5
-        total5=price5-discount5
-        grand_total=total+total2+total3+total4+total5
+        price5_total=price5*meters5
+        discount=order.discount
+        total5=price_total+price2_total+price3_total+price4_total+price5_total
+        grand_total=total5-discount
     # else:
     #     price2=None
     # if price2 !=  None:
@@ -141,26 +143,32 @@ def admin_order_pdf(request, order_id, *args, **kwargs):
     'total':total,
     'type':type,
     'price':price,
+    'price_total':price_total,
     'meters':meters,
     'discount':discount,
     'type2':type2,
     'price2':price2,
-    'discount2':discount2,
+    'price2_total':price2_total,
+
+    # 'discount2':discount2,
     'total2':total2,
     'meters2':meters2,
     'type3':type3,
     'price3':price3,
-    'discount3':discount3,
+    'price3_total':price3_total,
+    # 'discount3':discount3,
     'total3':total3,
     'meters3':meters3,
     'type4':type4,
     'price4':price4,
-    'discount4':discount4,
+    'price4_total':price4_total,
+    # 'discount4':discount4,
     'total4':total4,
     'meters4':meters4,
     'type5':type5,
     'price5':price5,
-    'discount5':discount5,
+    'price5_total':price5_total,
+    # 'discount5':discount5,
     'total5':total5,
     'meters5':meters5,
     'grand_total':grand_total,

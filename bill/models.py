@@ -26,6 +26,10 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 class Direct(models.Model):
+    # date = models.DateTimeField(auto_now_add=True, blank=True)
+    date = models.DateTimeField(default=datetime.now, blank=True)
+
+
     type=models.CharField(max_length=128,null=True,blank=True)
     name=models.CharField(max_length=128)
     price=models.IntegerField()
@@ -47,7 +51,7 @@ class Direct(models.Model):
     type5=models.CharField(max_length=128,null=True,blank=True)
     meters5=models.FloatField(null=True,blank=True)
     price5=models.IntegerField(null=True,blank=True)
-    discount5=models.IntegerField(null=True,blank=True)     
+    discount5=models.IntegerField(null=True,blank=True)
     # phone_number2=models.BigIntegerField(null=True)
     def __str__(self):
         return self.name
