@@ -62,14 +62,14 @@ def admin_order_pdf(request, order_id, *args, **kwargs):
     meters =order.meters
     price_total=price*meters
     discount=order.discount
-    total=price
+    total=price_total
     grand_total=total-discount
     type2=order.type2
 
     if type2 == None:
         price2=None
         meters2=None
-        # discount2=None
+        price2_total=None
         total2=None
     else:
         price2=order.price2
@@ -85,7 +85,7 @@ def admin_order_pdf(request, order_id, *args, **kwargs):
     if type3 == None:
         price3=None
         meters3=None
-        discount=None
+        price3_total=None
         total3=None
     else:
         price3=order.price3
@@ -100,7 +100,7 @@ def admin_order_pdf(request, order_id, *args, **kwargs):
     if type4 == None:
         price4=None
         meters4=None
-        # discount4=None
+        price4_total=None
         total4=None
     else:
         price4=order.price4
@@ -113,7 +113,7 @@ def admin_order_pdf(request, order_id, *args, **kwargs):
     if type5 == None:
         price5=None
         meters5=None
-        discount=None
+        price5_total=None
         total5=None
     else:
         price5=order.price5
