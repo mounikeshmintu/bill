@@ -1,43 +1,106 @@
+<!DOCTYPE html>
+
+
+
 <style>
-  table{
-    /* padding-top:100px; */
-    top:100px;
-  }
+  /* table, th, td {
+    border-top: none;
+} */
+  /* table{
+
+    position: absolute;
+    left: 10;
+    border: 1px solid black;
+    border-collapse:collapse;
+    border-bottom: 0;
+    border-top: 0;
+
+
+  } */
+
+
+  table, th, td {
+
+    border-collapse: collapse;
+    /* border: 1px solid black; */
+
+
+
+}
+td{
+    border:1px solid black;
+    border-top: none;
+    border-bottom: none;
+}
   .order{
     padding-top:10px;
+    border:0;
+    /* border-right: 0; */
+
   }
   .another{
     padding-top:10px;
+    border:0;
 
   }
+   .date{
+     border-left: 0;
+     border-right: 0;
+    border:0;
+  }
+  .grand{
+    /* padding-top:2px; */
+
+    }
+  .discount{
+    padding-top: 2px;
+    border-top: 1px solid black;
+
+  }
+  .billed{
+    border:0;
+  }
+  .th{
+
+    border: 1px solid black;
+
+  }
+
+    /* border:0; */
+    /* border-top:0; */
+    /* border-bottom:none; */
+
+
+
+
 </style>
 <font size='5'>
 
-<table style="top:100px;">
+<table rules="rows">
 <!-- <div class="order"> -->
-  <tr>
-    <td class="no-line"></td>
-    <td class="no-line"></td>
+  <tr class="date">
+    <td style="border:0;"></td>
+    <td style="border:0;"></td>
 
-    <td class="order"><strong>order date</strong></td>
-    <td class="another">{{ order.date|date:"M d, Y" }}</td>
+    <td class="order" style="border:0;"><strong>order date</strong></td>
+    <td class="another" style="border:0;">{{ order.date|date:"M d, Y" }}</td>
   </tr>
 <!-- </div> -->
 
-  <tr>
-    <td class="no-line"></td>
-    <td class="no-line"></td>
-    <td class="no-line text-center"><strong>Billed To:</strong></td>
-    <td class="no-line text-right">{{order.name}}</td>
+  <tr class ="billed">
+    <td class="no-line" style="border:0;"></td>
+    <td class="no-line"style="border:0;"></td>
+    <td class="no-line text-center" style="border:0;"><strong>Billed To:</strong></td>
+    <td class="no-line text-right"style="border:0;">{{order.name}}</td>
 
   </tr>
-  <tr>
+  <tr class="th">
       <td style="padding:0px 15px 0px 65px;"><strong>Type</strong></td>
-      <td style="padding:0px 15px 0px 20px;"><strong>Quantitiy<strong></td>
+      <td style="padding:0px 15px 0px 20px; "><strong>Quantitiy<strong></td>
         <td style="padding:0px 15px 0px 0px;"><strong>price<strong></td>
           <td style="padding:0px 15px 0px 0px;"><strong>total price<strong></td>
   </tr>
-  <tr>
+  <tr class="type">
       <td style="padding:5px 15px 0px 65px;">{{type}}</td>
       <td style="padding:5px 15px 0px 20px;">{{meters}}</td>
       <td style="padding:5px 15px 0px 0px;">{{price}}</td>
@@ -67,19 +130,19 @@
       {% if price5 != None %}<td style="padding:5px 15px 0px 0px;">{{price5}}</td>{%endif%}
       {% if price5_total != None %}<td style="padding:5px 15px 0px 0px;">{{price5_total}}</td>{%endif%}
   </tr>
-  <tr>
-    <td class="no-line"></td>
-    <td class="no-line"></td>
+  <tr class="discount">
+    <td class="no-line" style="border:0;"></td>
+    <td class="no-line" style="border:0;"></td>
 
-    <td class="no-line text-center"><strong>discount</strong></td>
-    <td class="no-line text-right">{{discount}}</td>
+    <td class="no-line text-center" style="border:0;"><strong>discount</strong></td>
+    <td class="no-line text-right" style="border:0;">{{discount}}</td>
   </tr>
-      <tr>
-        <td class="no-line"></td>
-        <td class="no-line"></td>
+      <tr class="grand">
+        <td class="no-line" style="border:0;"></td>
+        <td class="no-line" style="border:0;"></td>
 
-        <td class="no-line text-center"><strong>Grand Total</strong></td>
-        <td class="no-line text-right">{{grand_total}}</td>
+        <td class="no-line text-center"style="border:0; paddding-top:2px;"><strong>Grand Total</strong></td>
+        <td class="no-line text-right" style="border:0;">{{grand_total}}</td>
       </tr>
 </table>
 </font>
