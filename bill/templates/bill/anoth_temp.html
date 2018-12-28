@@ -1,0 +1,117 @@
+<html>
+
+<body>
+<style>
+  body{
+    margin:0px;
+    padding:0px;
+    }
+   *{margin: 0;
+     padding: 0;}
+
+  table{
+     border: 1px solid black;
+    border: 1px solid black;
+    border-collapse: collapse;
+    position: fixed;
+top: 0;
+bottom:100px;
+left: 0;
+margin-top:-50px;
+/* width: 400px; */
+/* height: 15px; */
+
+
+
+  }
+  table td, table td * {
+      vertical-align: top;
+  }
+  tab{
+
+    display: flex;
+     align-items: flex-start;
+      justify-content: right;
+  }
+</style>
+
+<font size='5'>
+  <div class="tab">
+    <table align="center" style="margin-bottom:100px;" >
+      <tr>
+        <td class="no-line"></td>
+        <td class="no-line"></td>
+      </br>
+        <td style="padding-bottom:1px"><strong>order date</strong></td>
+        <td>{{ order.date|date:"M d, Y" }}</td>
+      </tr>
+          <tr>
+            <td class="no-line"></td>
+            <td class="no-line"></td>
+          </br>
+            <td class="no-line text-center"><strong>Billed To:</strong></td>
+            <td class="no-line text-right">{{order.name}}</td>
+
+          </tr>
+
+        <tr>
+
+            <td style="padding:0px 15px 0px 65px;"><strong>Type</strong></td>
+            <td style="padding:0px 15px 0px 20px;"><strong>Quantitiy<strong></td>
+              <td style="padding:0px 15px 0px 0px;"><strong>price<strong></td>
+                <td style="padding:0px 15px 0px 0px;"><strong>total price<strong></td>
+            <!-- <td style="padding:10px 15px 0 15px;">you?</td> -->
+        </tr>
+        <tr>
+            <td style="padding:5px 15px 0px 65px;">{{type}}</td>
+            <td style="padding:5px 15px 0px 20px;">{{meters}}</td>
+            <td style="padding:5px 15px 0px 0px;">{{price}}</td>
+            <td style="padding:5px 15px 0px opx;">{{price_total}}</td>
+            <!-- <td style="padding:0 15px 0 15px;">you?</td> -->
+        </tr>
+
+
+        <tr>
+            {% if type2 != None %}<td style="padding:5px 15px 0px 65px;">{{type2}}</td>{%endif%}
+            {% if meters2 != None %}<td style="padding:5px 15px 0px 20px;">{{meters2}}</td>{%endif%}
+            {% if price2 != None %}<td style="padding:5px 15px 0px 0px;">{{price2}}</td>{%endif%}
+            {% if price2_total != None %}<td style="padding:5px 15px 0px opx;">{{price2_total}}</td>{%endif%}
+        </tr>
+        <tr>
+            {% if type3 != None %}<td style="padding:5px 15px 0px 65px;">{{type3}}</td>{%endif%}
+            {% if meters3 != None %}<td style="padding:5px 15px 0px 20px;">{{meters3}}</td>{%endif%}
+            {% if price3 != None %}<td style="padding:5px 15px 0px 0px;">{{price3}}</td>{%endif%}
+            {% if price3_total != None %}<td style="padding:5px 15px 0px opx;">{{price3_total}}</td>{%endif%}
+        </tr>
+        <tr>
+            {% if type4 != None %}<td style="padding:5px 15px 0px 65px;">{{type4}}</td>{%endif%}
+            {% if meters4 != None %}<td style="padding:5px 15px 0px 20px;">{{meters4}}</td>{%endif%}
+            {% if price4 != None %}<td style="padding:5px 15px 0px 0px;">{{price4}}</td>{%endif%}
+            {% if price4_total != None %}<td style="padding:5px 15px 0px opx;">{{price4_total}}</td>{%endif%}
+        </tr>
+        <tr>
+            {% if type5 != None %}<td style="padding:5px 15px 0px 65px;">{{type5}}</td>{%endif%}
+            {% if meters5 != None %}<td style="padding:5px 15px 0px 20px;">{{meters5}}</td>{%endif%}
+            {% if price5 != None %}<td style="padding:5px 15px 0px 0px;">{{price5}}</td>{%endif%}
+            {% if price5_total != None %}<td style="padding:5px 15px 0px 0px;">{{price5_total}}</td>{%endif%}
+        </tr>
+        <tr>
+          <td class="no-line"></td>
+          <td class="no-line"></td>
+        </br>
+          <td class="no-line text-center"><strong>discount</strong></td>
+          <td class="no-line text-right">{{discount}}</td>
+        </tr>
+            <tr>
+              <td class="no-line"></td>
+              <td class="no-line"></td>
+            </br>
+              <td style="padding-bottom:25px;"><strong>Grand Total</strong></td>
+              <td style="padding-bottom:25px;">{{grand_total}}</td>
+            </tr>
+    </table>
+    </font>
+  </div>
+
+</body>
+</html>

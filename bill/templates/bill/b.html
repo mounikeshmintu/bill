@@ -1,190 +1,85 @@
-
-{% load static %}
-{% load staticfiles %}
-<style >
-  .invoice{
-    color: Green;
-    text-transform: uppercase;
-    font-size: 100px;
-
-
-
+<style>
+  table{
+    /* padding-top:100px; */
+    top:100px;
+  }
+  .order{
+    padding-top:10px;
+  }
+  .another{
+    padding-top:10px;
 
   }
-  .order  {
-    text-align:right;
-    font-size: 100px;
-    padding-bottom: 10px;
-
-  }
-
-  .billed{
-    text-align:right;
-    font-size: 20px;
-
-    align-items: right;
-  }
-   table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-  cell
-}
-
-td, th {
-  /* border: 1px solid #dddddd; */
-  font-size: 20px;
-   border: 1px solid black;
-  /* text-align: left; */
-  /* padding: 8px; */
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-.title{
-  text-align: center;
-  font-size: 30px;
-  font-family: Helvetica;
-  font-style: normal;
-}
 </style>
-<link rel="stylesheet" type="text/css" href="{% static ' css/main.css' %}">
-<link rel="stylesheet" type="text/css" href="css/main.css">
+<font size='5'>
 
+<table style="top:100px;">
+<!-- <div class="order"> -->
+  <tr>
+    <td class="no-line"></td>
+    <td class="no-line"></td>
 
-<div class="container">
-    <div class="row">
-        <div class="col-xs-12">
-    		<div class="invoice-title">
-    			<h1 class ="invoice">INVOICE</h1>
-          <h3 class="order">Order # {{order.id}}</h3>
-    		</div>
-<div class ='title'>Sreeman Cotton Fabs
-</br>
-tower road
-</div>
-    		<hr>
+    <td class="order"><strong>order date</strong></td>
+    <td class="another">{{ order.date|date:"M d, Y" }}</td>
+  </tr>
+<!-- </div> -->
 
-    		<div class="row">
-    			<div class="col-xs-6">
-            <div class="billed">
-              <strong>Billed To:</strong><br>
-                {{order.name}}<br>
-                {{order.phone_number}}<br>
-              </address>
-            </div>
-            <div class="col-xs-6">
-              <address>
-                <strong>Order Date:</strong><br>
-                <span class="secondary">
-                  {{ order.date|date:"M d, Y" }}
-                </span><br><br>
-              </address>
-            </div>
-    				<address>
-          <hr>
-    	</div>
-    </div>
+  <tr>
+    <td class="no-line"></td>
+    <td class="no-line"></td>
+    <td class="no-line text-center"><strong>Billed To:</strong></td>
+    <td class="no-line text-right">{{order.name}}</td>
 
-    <div class="row">
-    	<div class="col-md-12">
-    		<div class="panel panel-default">
-    			<div class="panel-heading">
-    				<h3 class="panel-title"><strong>Order summary</strong></h3>
-    			</div>
-    			<div class="panel-body">
-    				<div class="table-responsive">
-    					<table class="table table-condensed" cellpadding="10">
-    						<thead>
-                                <tr>
-        							<td><strong>Item</strong></td>
-        							<td class="text-center"><strong>Quantitiy  </strong></td>
-        							<td class="text-center"><strong>price</strong></td>
-                      <td class="text-center"><strong>total price</strong></td>
+  </tr>
+  <tr>
+      <td style="padding:0px 15px 0px 65px;"><strong>Type</strong></td>
+      <td style="padding:0px 15px 0px 20px;"><strong>Quantitiy<strong></td>
+        <td style="padding:0px 15px 0px 0px;"><strong>price<strong></td>
+          <td style="padding:0px 15px 0px 0px;"><strong>total price<strong></td>
+  </tr>
+  <tr>
+      <td style="padding:5px 15px 0px 65px;">{{type}}</td>
+      <td style="padding:5px 15px 0px 20px;">{{meters}}</td>
+      <td style="padding:5px 15px 0px 0px;">{{price}}</td>
+      <td style="padding:5px 15px 0px opx;">{{price_total}}</td>
+  </tr>
+  <tr>
+      {% if type2 != None %}<td style="padding:5px 15px 0px 65px;">{{type2}}</td>{%endif%}
+      {% if meters2 != None %}<td style="padding:5px 15px 0px 20px;">{{meters2}}</td>{%endif%}
+      {% if price2 != None %}<td style="padding:5px 15px 0px 0px;">{{price2}}</td>{%endif%}
+      {% if price2_total != None %}<td style="padding:5px 15px 0px opx;">{{price2_total}}</td>{%endif%}
+  </tr>
+  <tr>
+      {% if type3 != None %}<td style="padding:5px 15px 0px 65px;">{{type3}}</td>{%endif%}
+      {% if meters3 != None %}<td style="padding:5px 15px 0px 20px;">{{meters3}}</td>{%endif%}
+      {% if price3 != None %}<td style="padding:5px 15px 0px 0px;">{{price3}}</td>{%endif%}
+      {% if price3_total != None %}<td style="padding:5px 15px 0px opx;">{{price3_total}}</td>{%endif%}
+  </tr>
+  <tr>
+      {% if type4 != None %}<td style="padding:5px 15px 0px 65px;">{{type4}}</td>{%endif%}
+      {% if meters4 != None %}<td style="padding:5px 15px 0px 20px;">{{meters4}}</td>{%endif%}
+      {% if price4 != None %}<td style="padding:5px 15px 0px 0px;">{{price4}}</td>{%endif%}
+      {% if price4_total != None %}<td style="padding:5px 15px 0px opx;">{{price4_total}}</td>{%endif%}
+  </tr>
+  <tr>
+      {% if type5 != None %}<td style="padding:5px 15px 0px 65px;">{{type5}}</td>{%endif%}
+      {% if meters5 != None %}<td style="padding:5px 15px 0px 20px;">{{meters5}}</td>{%endif%}
+      {% if price5 != None %}<td style="padding:5px 15px 0px 0px;">{{price5}}</td>{%endif%}
+      {% if price5_total != None %}<td style="padding:5px 15px 0px 0px;">{{price5_total}}</td>{%endif%}
+  </tr>
+  <tr>
+    <td class="no-line"></td>
+    <td class="no-line"></td>
 
-        							<!-- <td class="text-right"><strong>Totals</strong></td> -->
-                                </tr>
-    						</thead>
-    						<tbody>
-    							<!-- foreach ($order->lineItems as $line) or some such thing here -->
-    							<tr>
-    								<td>{{type}}</td>
-                    <td class="text-center">{{meters}}</td>
+    <td class="no-line text-center"><strong>discount</strong></td>
+    <td class="no-line text-right">{{discount}}</td>
+  </tr>
+      <tr>
+        <td class="no-line"></td>
+        <td class="no-line"></td>
 
-    								<td class="text-center">{{price}}</td>
-                    <td class="text-center">{{price_total}}</td>
-
-    								<!-- <td class="text-right">{{total}}</td> -->
-    							</tr></br>
-                                <tr>
-        							  {% if type2 != None %}<td>{{type2}}</td>{%endif%}
-                        {% if meters2 != None %}<td class="text-center">{{meters2}}</td>{%endif%}
-
-    							      {% if price2 != None %}	<td class="text-center">{{price2}} </td>{%endif%}
-                      {% if price2_total != None %}<td class="text-center">{{price2_total}}</td>{%endif%}
-
-    								  <!-- {% if total2 != None %}<td class="text-right">{{total2}}</td>{%endif%} -->
-    							</tr>
-                </tr>
-                              <tr>
-                      {% if type3 != None %}<td>{{type3}}</td>{%endif%}
-                      {% if meters3 != None %}<td class="text-center">{{meters3}}</td>{%endif%}
-
-                      {% if price3 != None %}	<td class="text-center">{{price3}} </td>{%endif%}
-                    {% if price3_total != None %}<td class="text-center">{{price3_total}}</td>{%endif%}
-
-                    <!-- {% if total3 != None %}<td class="text-right">{{total3}}</td>{%endif%} -->
-                </tr>
-              </tr>
-                            <tr>
-                    {% if type4 != None %}<td>{{type4}}</td>{%endif%}
-                    {% if meters4 != None %}<td class="text-center">{{meters4}}</td>{%endif%}
-                    {% if price4 != None %}	<td class="text-center">{{price4}} </td>{%endif%}
-                  {% if price4_total != None %}<td class="text-center">{{price4_total}}</td>{%endif%}
-
-                  <!-- {% if total4 != None %}<td class="text-right">{{total4}}</td>{%endif%} -->
-              </tr>
-            </tr>
-                          <tr>
-                  {% if type5 != None %}<td>{{type5}}</td>{%endif%}
-                  {% if meters5 != None %}<td class="text-center">{{meters5}}</td>{%endif%}
-                  {% if price5 != None %}	<td class="text-center">{{price5}} </td>{%endif%}
-                {% if price5_total != None %}<td class="text-center">{{price5_total}}</td>{%endif%}
-                <!-- {% if total5 != None %}<td class="text-right">{{total5}}</td>{%endif%} -->
-            <!-- </tr>
-    								<td class="thick-line"></td>
-    								<td class="thick-line"></td>
-    								<td class="thick-line text-center"><strong>Subtotal</strong></td>
-    								<td class="thick-line text-right">$670.99</td>
-    							</tr> -->
-    							<!-- <tr>
-    								<td class="no-line"></td>
-    								<td class="no-line"></td>
-    								<td class="no-line text-center"><strong>Shipping</strong></td>
-    								<td class="no-line text-right">$15</td>
-    							</tr> -->
-                </br>
-              </br>
-              <tr>
-                <td class="no-line"></td>
-                <td class="no-line"></td>
-              </br>
-                <td class="no-line text-center"><strong>discount</strong></td>
-                <td class="no-line text-right">{{discount}}</td>
-              </tr>
-    							<tr>
-    								<td class="no-line"></td>
-    								<td class="no-line"></td>
-                  </br>
-    								<td class="no-line text-center"><strong>Grand Total</strong></td>
-    								<td class="no-line text-right">{{grand_total}}</td>
-    							</tr>
-    						</tbody>
-    					</table>
-    				</div>
-    			</div>
-    		</div>
-    	</div>
-    </div>
-</div>
+        <td class="no-line text-center"><strong>Grand Total</strong></td>
+        <td class="no-line text-right">{{grand_total}}</td>
+      </tr>
+</table>
+</font>
