@@ -64,6 +64,14 @@ def admin_order_pdf(request, order_id, *args, **kwargs):
     discount=order.discount
     total=price_total
     grand_total=total-discount
+    # D.objects.update_or_create(id=order_id,grand_total=grand_total)
+    # d=D()
+    # d.id=order_id
+    # d.grand_total=grand_total
+    # d.save()
+    d=D.objects.get(id=order_id)
+    d.grand_total=grand_total
+    d.save()
     type2=order.type2
 
     if type2 == None:
@@ -80,6 +88,10 @@ def admin_order_pdf(request, order_id, *args, **kwargs):
         # total2=price2-discount2
         total2=price_total+price2_total
         grand_total=total2-discount
+        d=D.objects.get(id=order_id)
+        d.grand_total=grand_total
+        d.save()
+        # D.objects.create(grand_total=grand_total)
 
     type3=order.type3
     if type3 == None:
@@ -95,6 +107,9 @@ def admin_order_pdf(request, order_id, *args, **kwargs):
         # total3=price3-discount3
         total3=price_total+price2_total+price3_total
         grand_total=total3-discount
+        d=D.objects.get(id=order_id)
+        d.grand_total=grand_total
+        d.save()
 
     type4=order.type4
     if type4 == None:
@@ -109,7 +124,11 @@ def admin_order_pdf(request, order_id, *args, **kwargs):
         discount=order.discount
         total4=price_total+price2_total+price3_total+price4_total
         grand_total=total4-discount
+        d=D.objects.get(id=order_id)
+        d.grand_total=grand_total
+        d.save()
     type5=order.type5
+
     if type5 == None:
         price5=None
         meters5=None
@@ -122,6 +141,9 @@ def admin_order_pdf(request, order_id, *args, **kwargs):
         discount=order.discount
         total5=price_total+price2_total+price3_total+price4_total+price5_total
         grand_total=total5-discount
+        d=D.objects.get(id=order_id)
+        d.grand_total=grand_total
+        d.save()
     # else:
     #     price2=None
     # if price2 !=  None:

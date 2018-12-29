@@ -16,7 +16,7 @@ class DirectAdmin(admin.ModelAdmin):
         return format_html("<a href='{}'>{}</a>", url, "pdf")
     order_pdf.allow_tags = True
     order_pdf.short_description = 'PDF bill'
-    list_display=['id','name','price','phone_number',order_pdf]
+    list_display=['id','name','grand_total','phone_number',order_pdf,'date']
 # class DirectAdmin(admin.ModelAdmin):
 #     def order_pdf(obj):
 #      # return "<a href='{}'>pdf</a>".format(
